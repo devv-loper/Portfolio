@@ -251,7 +251,7 @@ export default function MobileModernRobot() {
                   animate={{
                     rotateZ: isTyping ? [0, -12, 6, -9, 0] : 0,
                   }}
-                  transition={{ duration: 0.8, repeat: isTyping ? Infinity : 0 }}
+                  transition={{ duration: 0.8, repeat: isTyping ? Infinity : 0, type: "tween" }}
                 >
                   <div className="absolute -bottom-0.5 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-gray-500 rounded border border-gray-600"></div>
                 </motion.div>

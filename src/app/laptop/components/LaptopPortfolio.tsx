@@ -239,7 +239,7 @@ const ModernRobot = () => {
                 animate={{
                   rotateZ: isTyping ? [0, -15, 8, -12, 0] : 0,
                 }}
-                transition={{ duration: 0.8, repeat: isTyping ? Infinity : 0 }}
+                transition={{ duration: 0.8, repeat: isTyping ? Infinity : 0, type: "tween" }}
               >
                 {/* Hand */}
                 <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-500 rounded border border-gray-600"></div>
@@ -587,7 +587,8 @@ export default function LaptopPortfolio() {
                   transition={{ 
                     duration: 3.5, 
                     repeat: Infinity,
-                    delay: 1.5
+                    delay: 1.5,
+                    type: "tween"
                   }}
                 >
                   🚀
