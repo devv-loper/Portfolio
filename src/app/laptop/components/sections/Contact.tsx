@@ -23,7 +23,7 @@ export default function Contact() {
             }}
             transition={{ duration: 4.5, repeat: Infinity }}
           >
-            Let's build.
+            Let&apos;s build.
           </motion.h2>
           
           <p className="text-xl text-slate-200 max-w-2xl mx-auto font-medium drop-shadow-lg" style={{ textShadow: '0 0 4px rgba(255, 255, 255, 0.2)' }}>

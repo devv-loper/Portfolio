@@ -24,8 +24,8 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Hey there! I'm a passionate full-stack developer who loves turning ideas into reality. 
-          When I'm not coding, you'll find me listening to music or trying to contribute in open source.
+          Hey there! I&apos;m a passionate full-stack developer who loves turning ideas into reality. 
+          When I&apos;m not coding, you&apos;ll find me listening to music or trying to contribute in open source.
         </motion.p>
         
         <motion.p 
@@ -34,7 +34,7 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          I believe in clean code, user-centered design, and building products that make a real impact.
+          I believe in clean code, user-centered design, and building products that make&apos;s a real impact.
         </motion.p>
         
         <motion.p 

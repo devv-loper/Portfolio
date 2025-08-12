@@ -56,7 +56,7 @@ export default function Contact() {
           }}
           transition={{ duration: 4, repeat: Infinity }}
         >
-          Let's Connect!
+          Let&apos;s Connect!
         </motion.h2>
       </motion.div>
 
