@@ -21,7 +21,7 @@ export default function MobileGitHubContributionGrid() {
   };
 
   const handleGridClick = () => {
-    window.open('https://github.com/devvsonii', '_blank');
+    window.open('https://github.com/devv-lopper', '_blank');
   };
 
   return (

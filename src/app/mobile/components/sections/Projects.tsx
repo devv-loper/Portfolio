@@ -19,7 +19,7 @@ export default function Projects() {
       title: 'PhishShield',
       description: 'Hackathon project - AI-powered phishing detection tool that analyzes URLs and emails to identify potential security threats.',
       tech: ['Python', 'Machine Learning', 'express','Flask', 'React'],
-      github: 'https://github.com/devvsonii/phishshield',
+      github: 'https://github.com/devv-loper/PhishShield',
       live: '',
       emoji: '🛡️'
     },
@@ -28,7 +28,7 @@ export default function Projects() {
       title: 'Portfolio',
       description: 'Personal portfolio website with device-specific experiences. Features smooth animations, interactive elements, and responsive design.',
       tech: ['Next.js', 'Framer Motion', 'TypeScript', 'Tailwind'],
-      github: 'https://github.com/devvsonii/vibe-portfolio',
+      github: 'https://github.com/devv-loper/Portfolio',
       live: '',
       emoji: '🎨'
     },
@@ -37,7 +37,7 @@ export default function Projects() {
       title: 'DevTasks',
       description: 'Modern task management application for developers. Currently in development with real-time collaboration and GitHub integration planned.',
       tech: ['React', 'Javascript', 'Node.js', 'MongoDB'],
-      github: 'https://github.com/devvsonii/devtasks',
+      github: 'https://github.com/devv-loper/DevTasks',
       live: '',
       emoji: '🚧'
     }

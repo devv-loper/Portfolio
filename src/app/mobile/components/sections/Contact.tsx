@@ -13,19 +13,19 @@ export default function Contact() {
     {
       name: 'GitHub',
       icon: '🐙',
-      href: 'https://github.com/devvsonii',
+      href: 'https://github.com/devv-loper',
       label: '@devvsonii'
     },
     {
       name: 'LinkedIn',
       icon: '💼',
-      href: 'https://linkedin.com/in/devvsonii',
+      href: 'https://linkedin.com/in/devsoni3',
       label: '/in/devvsonii'
     },
     {
       name: 'X (Twitter)',
       icon: '🐦',
-      href: 'https://x.com/devvsonii',
+      href: 'https://x.com/devv_sonii',
       label: '@devvsonii'
     }
   ];
