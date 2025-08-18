@@ -53,7 +53,7 @@ const ModernRobot = () => {
 
   const handleRobotClick = () => {
     // Open resume in new tab
-    window.open('/resume.pdf', '_blank');
+    window.open('/Dev_CV', '_blank');
   };
 
   return (
