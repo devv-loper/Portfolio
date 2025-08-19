@@ -79,7 +79,7 @@ export default function Contact() {
               <motion.div
                 className="text-2xl"
                 animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, delay: index * 0.5 }}
+                transition={{ duration: 4, repeat: Infinity, delay: index * 0.5, type: "tween" }}
               >
                 {method.icon}
               </motion.div>

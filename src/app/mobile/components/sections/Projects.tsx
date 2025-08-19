@@ -96,7 +96,7 @@ export default function Projects() {
               <motion.div
                 className="text-4xl"
                 animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, delay: index * 0.5 }}
+                transition={{ duration: 4, repeat: Infinity, delay: index * 0.5, type: "tween" }}
               >
                 {project.emoji}
               </motion.div>
@@ -166,7 +166,7 @@ export default function Projects() {
               <motion.span 
                 className="text-sm"
                 animate={{ x: [0, 3, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+                transition={{ duration: 1.5, repeat: Infinity, type: "tween" }}
               >
                 →
               </motion.span>

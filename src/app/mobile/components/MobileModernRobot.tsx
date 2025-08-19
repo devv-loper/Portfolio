@@ -60,7 +60,7 @@ export default function MobileModernRobot() {
   }, []);
 
   const handleRobotClick = () => {
-    window.open('/Dev_CV', '_blank');
+    window.open('/DevSoni.pdf', '_blank');
   };
 
   return (
@@ -133,12 +133,11 @@ export default function MobileModernRobot() {
                 </div>
               </div>
               
-              {/* Antenna */}
               <div className="absolute -top-0.5 left-1/2 transform -translate-x-1/2">
                 <motion.div
                   className="w-0.5 h-3 bg-gray-400 rounded-full"
                   animate={{ rotateZ: [0, 3, 0, -3, 0] }}
-                  transition={{ duration: 4, repeat: Infinity }}
+                  transition={{ duration: 4, repeat: Infinity, type: "tween" }}
                 >
                   <div className="absolute -top-0.5 -left-0.5 w-1 h-1 bg-red-500 rounded-full animate-pulse shadow-sm shadow-red-500/50"></div>
                 </motion.div>
@@ -183,7 +182,8 @@ export default function MobileModernRobot() {
                       transition={{ 
                         duration: 1.5, 
                         repeat: Infinity,
-                        delay: i * 0.2
+                        delay: i * 0.2,
+                        type: "tween"
                       }}
                     />
                   ))}
@@ -216,7 +216,7 @@ export default function MobileModernRobot() {
                   mousePosition.x * -4
                 ] : mousePosition.x * -4,
               }}
-              transition={{ type: "spring", stiffness: 100, damping: 25 }}
+              transition={{ type: "tween", stiffness: 100, damping: 25 }}
             >
               <div className="w-3 h-10 bg-gradient-to-b from-gray-800 to-black rounded-full border border-gray-500 relative">
                 <div className="absolute -top-0.5 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-400 rounded-full border border-gray-600"></div>
@@ -242,7 +242,7 @@ export default function MobileModernRobot() {
                   mousePosition.x * 4
                 ] : mousePosition.x * 4,
               }}
-              transition={{ type: "spring", stiffness: 100, damping: 25 }}
+              transition={{ type: "tween", stiffness: 100, damping: 25 }}
             >
               <div className="w-3 h-10 bg-gradient-to-b from-gray-800 to-black rounded-full border border-gray-500 relative">
                 <div className="absolute -top-0.5 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-400 rounded-full border border-gray-600"></div>

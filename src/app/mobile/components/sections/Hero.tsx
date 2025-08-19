@@ -68,6 +68,7 @@ export default function Hero() {
                     repeat: Infinity,
                     repeatDelay: 8,
                     times: [0, 0.1, 0.8, 1],
+                    type: "tween"
                   }}
                 >
                   web developer
@@ -81,6 +82,7 @@ export default function Hero() {
                     repeatDelay: 8,
                     times: [0, 0.33, 0.43, 0.8, 1],
                     delay: 4,
+                    type: "tween"
                   }}
                 >
                   backend developer
@@ -94,6 +96,7 @@ export default function Hero() {
                     repeatDelay: 8,
                     times: [0, 0.66, 0.76, 0.8, 1],
                     delay: 8,
+                    type: "tween"
                   }}
                 >
                   DSA enthusiast
@@ -118,7 +121,7 @@ export default function Hero() {
               <span>Explore Portfolio</span>
               <motion.span 
                 animate={{ y: [0, 3, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                transition={{ duration: 2, repeat: Infinity, type: "tween" }}
               >
                 ↓
               </motion.span>

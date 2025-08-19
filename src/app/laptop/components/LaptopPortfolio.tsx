@@ -51,16 +51,18 @@ const ModernRobot = () => {
     };
   }, []);
 
-  const handleRobotClick = () => {
-    // Open resume in new tab
-    window.open('/Dev_CV', '_blank');
+  const handleRobotClick = (e: React.MouseEvent) => {
+    console.log('Robot clicked!');
+    alert('Robot clicked! Opening resume...');
+    window.open('/DevSoni.pdf', '_blank');
   };
 
   return (
-    <div ref={robotRef} className="relative w-full h-full flex items-center justify-center">
+    <div ref={robotRef} className="relative w-full h-full flex items-center justify-center z-50">
       <motion.div
-        className="relative cursor-pointer"
+        className="relative cursor-pointer select-none z-50"
         onClick={handleRobotClick}
+        onMouseDown={handleRobotClick}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         animate={{
@@ -68,6 +70,7 @@ const ModernRobot = () => {
           rotateX: -mousePosition.y * 5,
         }}
         transition={{ type: "spring", stiffness: 100, damping: 30 }}
+        style={{ pointerEvents: 'auto', zIndex: 9999}}
       >
         {/* Robot Head */}
         <motion.div
@@ -121,7 +124,7 @@ const ModernRobot = () => {
               <motion.div
                 className="w-0.5 h-4 bg-gray-400 rounded-full"
                 animate={{ rotateZ: [0, 3, 0, -3, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
+                transition={{ duration: 4, repeat: Infinity, type: "tween" }}
               >
                 <div className="absolute -top-0.5 -left-0.5 w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse shadow-lg shadow-red-500/50"></div>
               </motion.div>
@@ -139,7 +142,7 @@ const ModernRobot = () => {
           animate={{
             scale: [1, 1.01, 1],
           }}
-          transition={{ duration: 4, repeat: Infinity }}
+          transition={{ duration: 4, repeat: Infinity, type: "tween" }}
         >
           {/* Silver Chest Panel */}
           <div className="absolute inset-3 bg-gradient-to-br from-gray-300 to-gray-500 rounded-xl border border-gray-600 p-2">
@@ -151,7 +154,7 @@ const ModernRobot = () => {
                   boxShadow: ["0 0 8px #3b82f6", "0 0 16px #06b6d4", "0 0 8px #3b82f6"],
                   scale: [1, 1.05, 1]
                 }}
-                transition={{ duration: 2, repeat: Infinity }}
+                transition={{ duration: 2, repeat: Infinity, type: "tween" }}
               >
                 <div className="absolute inset-1 bg-cyan-300 rounded-full opacity-70"></div>
               </motion.div>
@@ -166,7 +169,8 @@ const ModernRobot = () => {
                     transition={{ 
                       duration: 1.5, 
                       repeat: Infinity,
-                      delay: i * 0.2
+                      delay: i * 0.2,
+                      type: "tween"
                     }}
                   />
                 ))}
@@ -199,7 +203,7 @@ const ModernRobot = () => {
                 mousePosition.x * -6
               ] : mousePosition.x * -6,
             }}
-            transition={{ type: "spring", stiffness: 100, damping: 25 }}
+            transition={{ type: "tween", stiffness: 100, damping: 25 }}
           >
             <div className="w-4 h-16 bg-gradient-to-b from-gray-800 to-black rounded-full border border-gray-500 relative">
               {/* Shoulder Joint */}
@@ -210,7 +214,7 @@ const ModernRobot = () => {
                 animate={{
                   rotateZ: isTyping ? [0, 15, -8, 12, 0] : 0,
                 }}
-                transition={{ duration: 0.6, repeat: isTyping ? Infinity : 0 }}
+                transition={{ duration: 0.6, repeat: isTyping ? Infinity : 0, type: "tween" }}
               >
                 {/* Hand */}
                 <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-500 rounded border border-gray-600"></div>
@@ -228,7 +232,7 @@ const ModernRobot = () => {
                 mousePosition.x * 6
               ] : mousePosition.x * 6,
             }}
-            transition={{ type: "spring", stiffness: 100, damping: 25 }}
+            transition={{ type: "tween", stiffness: 100, damping: 25 }}
           >
             <div className="w-4 h-16 bg-gradient-to-b from-gray-800 to-black rounded-full border border-gray-500 relative">
               {/* Shoulder Joint */}
@@ -266,12 +270,12 @@ const ModernRobot = () => {
 
         {/* Ambient Glow Effects */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 rounded-full blur-2xl scale-150"
+          className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 rounded-full blur-2xl scale-150 pointer-events-none"
           animate={{
             scale: [1.4, 1.6, 1.4],
             opacity: [0.2, 0.4, 0.2],
           }}
-          transition={{ duration: 4, repeat: Infinity }}
+          transition={{ duration: 4, repeat: Infinity, type: "tween" }}
         />
         
         {/* Tech Particles */}
@@ -293,6 +297,7 @@ const ModernRobot = () => {
                 duration: 2.5,
                 repeat: Infinity,
                 delay: i * 0.4,
+                type: "tween"
               }}
             />
           ))}
@@ -314,7 +319,12 @@ interface Project {
 
 export default function LaptopPortfolio() {
   const [activeSection, setActiveSection] = useState('hero');
+  const [isClient, setIsClient] = useState(false);
   const { scrollY } = useScroll();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -354,28 +364,31 @@ export default function LaptopPortfolio() {
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
       
       {/* Floating Particles */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-blue-400/30 rounded-full"
-            style={{
-              left: `${seededRandom(i) * 100}%`,
-              top: `${seededRandom(i + 1000) * 100}%`,
-            }}
-            initial={false}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.3, 1, 0.3],
-            }}
-            transition={{
-              duration: 3 + seededRandom(i + 2000) * 2,
-              repeat: Infinity,
-              delay: seededRandom(i + 3000) * 2,
-            }}
-          />
-        ))}
-      </div>
+      {isClient && (
+        <div className="fixed inset-0 overflow-hidden pointer-events-none">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-blue-400/30 rounded-full"
+              style={{
+                left: `${seededRandom(i) * 100}%`,
+                top: `${seededRandom(i + 1000) * 100}%`,
+              }}
+              initial={false}
+              animate={{
+                y: [0, -20, 0],
+                opacity: [0.3, 1, 0.3],
+              }}
+              transition={{
+                duration: 3 + seededRandom(i + 2000) * 2,
+                repeat: Infinity,
+                delay: seededRandom(i + 3000) * 2,
+                type: "tween"
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-black/20 backdrop-blur-xl border-b border-white/10 z-50">
@@ -476,6 +489,7 @@ export default function LaptopPortfolio() {
                         repeat: Infinity,
                         repeatDelay: 12,
                         times: [0, 0.1, 0.8, 1],
+                        type: "tween"
                       }}
                     >
                       web developer
@@ -491,6 +505,7 @@ export default function LaptopPortfolio() {
                         repeatDelay: 12,
                         times: [0, 0.33, 0.43, 0.8, 1],
                         delay: 6,
+                        type: "tween"
                       }}
                     >
                       backend developer
@@ -506,6 +521,7 @@ export default function LaptopPortfolio() {
                         repeatDelay: 12,
                         times: [0, 0.66, 0.76, 0.8, 1],
                         delay: 12,
+                        type: "tween"
                       }}
                     >
                       DSA enthusiast
@@ -525,7 +541,7 @@ export default function LaptopPortfolio() {
                 <motion.span 
                   className="ml-2 text-xl"
                   animate={{ y: [0, 5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                  transition={{ duration: 2, repeat: Infinity, type: "tween" }}
                 >
                   ↓
                 </motion.span>
@@ -549,7 +565,7 @@ export default function LaptopPortfolio() {
 
                 {/* Floating Tech Elements */}
                 <motion.div
-                  className="absolute -top-4 -left-8 text-2xl"
+                  className="absolute -top-4 -left-8 text-2xl pointer-events-none"
                   animate={{ 
                     y: [0, -10, 0],
                     rotate: [0, 10, 0]
@@ -557,14 +573,15 @@ export default function LaptopPortfolio() {
                   transition={{ 
                     duration: 3, 
                     repeat: Infinity,
-                    delay: 0.5
+                    delay: 0.5,
+                    type: "tween"
                   }}
                 >
                   💡
                 </motion.div>
                 
                 <motion.div
-                  className="absolute -top-2 -right-8 text-xl"
+                  className="absolute -top-2 -right-8 text-xl pointer-events-none"
                   animate={{ 
                     y: [0, -8, 0],
                     rotate: [0, -15, 0]
@@ -572,14 +589,15 @@ export default function LaptopPortfolio() {
                   transition={{ 
                     duration: 4, 
                     repeat: Infinity,
-                    delay: 1
+                    delay: 1,
+                    type: "tween"
                   }}
                 >
                   ⚡
                 </motion.div>
                 
                 <motion.div
-                  className="absolute -bottom-4 -right-6 text-2xl"
+                  className="absolute -bottom-4 -right-6 text-2xl pointer-events-none"
                   animate={{ 
                     y: [0, -12, 0],
                     rotate: [0, 20, 0]
@@ -596,9 +614,9 @@ export default function LaptopPortfolio() {
 
                 {/* Interactive Arrow */}
                 <motion.div
-                  className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-4xl"
+                  className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-4xl pointer-events-none"
                   animate={{ y: [0, 8, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                  transition={{ duration: 2, repeat: Infinity, type: "tween" }}
                 >
                   <motion.span
                     className="inline-block text-blue-400"

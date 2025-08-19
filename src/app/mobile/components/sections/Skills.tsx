@@ -71,7 +71,7 @@ export default function Skills() {
               <motion.div
                 className="text-2xl"
                 animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, delay: index * 0.8 }}
+                transition={{ duration: 4, repeat: Infinity, delay: index * 0.8, type: "tween" }}
               >
                 {index === 0 ? '💻' : index === 1 ? '⚡' : '🛠️'}
               </motion.div>
